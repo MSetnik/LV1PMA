@@ -12,13 +12,14 @@ import com.example.lv1.Model.MyDataStorage;
 import com.example.lv1.Model.Student;
 import com.example.lv1.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private MyDataStorage myDataStorage = MyDataStorage.getInstance();
     List<Student>lStudenti = myDataStorage.getlStudents();
-
+    ArrayList<Object> lPrikaz = new ArrayList<Object>();
     public RecycleViewAdapter(List<Student>myDataset)
     {
         lStudenti = myDataset;
@@ -55,8 +56,12 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             Ime = itemView.findViewById(R.id.studentIme);
             prezime = itemView.findViewById(R.id.prezime);
             predmet = itemView.findViewById(R.id.predmet);
-
         }
-
     }
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
 }
