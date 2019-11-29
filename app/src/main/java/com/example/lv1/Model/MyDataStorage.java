@@ -27,6 +27,6 @@ public class MyDataStorage {
 
     public void addStudent (Student newStudent)
     {
-        lStudents.add(newStudent);
+        this.lStudents.add(newStudent);
     }
 }

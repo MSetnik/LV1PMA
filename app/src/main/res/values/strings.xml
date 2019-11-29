@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">LV1</string>
+    <string name="odaberi_jezik">Odaberi jezik</string>
+    <string name="novi_student">NOVI STUDENT</string>
+    <string name="ime">Ime</string>
+    <string name="prezime">Prezime</string>
+    <string name="datum">Datum rođenja</string>
+    <string name="ime_predmeta">Ime predmeta</string>
+    <string name="ime_profesora">Ime profesora</string>
+    <string name="godina">Godina</string>
+    <string name="broj_sati_predavanja">Broj sati predavanja</string>
+    <string name="broj_sati_vjezbe">Broj sati vjezbi</string>
+    <string name="dalje">Dalje</string>
+
+    <string-array name="languages">
+        <item>Odaberite jezik</item>
+        <item>Hrvatski</item>
+        <item>Engleski</item>
+        <item>Mađarski</item>
+    </string-array>
+
 </resources>

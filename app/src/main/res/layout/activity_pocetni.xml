@@ -6,35 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".PocetniActivity">
 
-    <TextView
-        android:id="@+id/odabirJezika"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Odaberi jezik"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/recycleView"/>
-
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/odabirJezika"
-        app:layout_constraintRight_toLeftOf="@+id/button"
         app:layout_constraintBottom_toTopOf="@+id/recycleView"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintRight_toLeftOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/dodajStudenta"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Novi Student"
+        android:text="@string/novi_student"
+        app:layout_constraintBottom_toTopOf="@+id/recycleView"
         app:layout_constraintLeft_toRightOf="@+id/spinner"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/recycleView"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"

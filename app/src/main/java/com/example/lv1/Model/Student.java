@@ -10,7 +10,7 @@ public class Student {
     private String predavanja;
     private String vjezbe;
 
-    private Student(String Ime, String Prezime, String DatumRodenja, String Predmet, String Profesor, String Godina, String Predavanja, String Vjezbe) {
+    public Student(String Ime, String Prezime, String DatumRodenja, String Predmet, String Profesor, String Godina, String Predavanja, String Vjezbe) {
         ime = Ime;
         prezime= Prezime;
         datumRodenja = DatumRodenja;

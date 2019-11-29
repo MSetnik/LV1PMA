@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LV1</string>
+    <string name="broj_sati_vjezbe">" edzésórák száma"</string>
+    <string name="broj_sati_predavanja">" az előadások óráinak száma"</string>
+    <string name="datum">" születési idő"</string>
+    <string name="godina">" év"</string>
+    <string name="ime">" név"</string>
+    <string name="ime_predmeta">" A cikk neve"</string>
+    <string name="ime_profesora">Professzor neve</string>
+    <string name="novi_student">" ÚJ diák"</string>
+    <string name="odaberi_jezik">" Válassza ki a nyelvet"</string>
+    <string name="prezime">" vezetéknév"</string>
+    <string name="dalje">" további"</string>
+
+    <string-array name="languages">
+        <item>Válassza ki a nyelvet</item>
+        <item>Horvát</item>
+        <item>Angol</item>
+        <item>Magyar</item>
+    </string-array>
+
+</resources>

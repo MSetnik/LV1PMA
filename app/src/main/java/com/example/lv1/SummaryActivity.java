@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.lv1.Adapter.RecycleViewAdapter;
+import com.example.lv1.Model.MyDataStorage;
+import com.example.lv1.Model.Student;
+
 public class SummaryActivity extends AppCompatActivity {
 
     private TextView ime;
@@ -17,6 +21,7 @@ public class SummaryActivity extends AppCompatActivity {
     private TextView predavanja;
     private TextView vjezbe;
     private Button button;
+    private String datumRodenja;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +40,13 @@ public class SummaryActivity extends AppCompatActivity {
 
         final String sIme = oExtras.getString("ime");
         final String sPrezime =oExtras.getString("prezime");
+        final String datumRodenja = oExtras.getString("datumRodenja");
         final String sPredmet =oExtras.getString("predmet");
         final String sProfesor =oExtras.getString("profesor");
+        final String sGodina =oExtras.getString("godina");
         final String sPredavanja =oExtras.getString("predavanja");
         final String sVjezbe =oExtras.getString("vjezbe");
+
 
         ime.setText(sIme);
         prezime.setText(sPrezime);
@@ -50,8 +58,11 @@ public class SummaryActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyDataStorage myDataStorage = MyDataStorage.getInstance();
+                Student student = new Student(sIme,sPrezime,datumRodenja,sPredmet, sProfesor, sGodina, sPredavanja,sVjezbe);
+                myDataStorage.addStudent(student);
                 Intent intent = new Intent(getApplicationContext(), PocetniActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 startActivity(intent);
             }

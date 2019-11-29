@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/studentImePrezime"
-        android:layout_width="match_parent"
+        android:id="@+id/studentIme"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ime i prezime" />
+        android:text="Ime"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/prezime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="prezime"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/predmet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="predmet"
+        android:paddingLeft="20dp"/>
+
 
 </LinearLayout>
