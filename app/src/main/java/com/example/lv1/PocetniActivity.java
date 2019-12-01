@@ -56,7 +56,7 @@ public class PocetniActivity extends AppCompatActivity implements AdapterView.On
         bNoviStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),CreateNewRecordActivity.class);
+                Intent intent = new Intent(getApplicationContext(),PersonalInfoActivity.class);
                 startActivity(intent);
             }
         });

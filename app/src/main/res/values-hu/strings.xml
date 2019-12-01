@@ -12,6 +12,8 @@
     <string name="odaberi_jezik">" Válassza ki a nyelvet"</string>
     <string name="prezime">" vezetéknév"</string>
     <string name="dalje">" további"</string>
+    <string name="studenti">diákok:</string>
+
 
     <string-array name="languages">
         <item>Válassza ki a nyelvet</item>

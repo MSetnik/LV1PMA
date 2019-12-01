@@ -34,7 +34,7 @@
         android:layout_marginTop="40dp"/>
 
     <View
-        android:id="@+id/view7"
+        android:id="@+id/view12"
         android:layout_width="0dp"
         android:layout_height="3dp"
         android:layout_marginTop="5dp"
@@ -42,6 +42,77 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPrezime" />
+
+    <TextView
+        android:id="@+id/textViewDatumRodenja"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/datum"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIme"
+        app:layout_constraintBottom_toTopOf="@+id/textViewGodina"
+        app:layout_constraintRight_toLeftOf="@+id/textviewdatum"/>
+
+    <TextView
+        android:id="@+id/textviewdatum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintLeft_toRightOf="@id/textViewDatumRodenja"
+        app:layout_constraintTop_toTopOf="@+id/view12"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+
+    <View
+        android:id="@+id/view13"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textviewdatum" />
+
+    <TextView
+        android:id="@+id/textViewGodina"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/godina"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textviewgodina"
+        app:layout_constraintBottom_toTopOf="@+id/textviewgodina"
+        app:layout_constraintRight_toLeftOf="@+id/textviewgodina"/>
+
+    <TextView
+        android:id="@+id/textviewgodina"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintLeft_toRightOf="@id/textViewGodina"
+        app:layout_constraintTop_toTopOf="@+id/view13"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textviewgodina" />
 
     <TextView
         android:id="@+id/textViewPredmetPlaceholder"
