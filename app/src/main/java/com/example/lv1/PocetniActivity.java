@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.lv1.Adapter.RecycleViewAdapter;
 import com.example.lv1.Model.MyDataStorage;
+import com.example.lv1.Model.PersonalInfoFragment;
 import com.example.lv1.Model.Student;
 
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class PocetniActivity extends AppCompatActivity implements AdapterView.On
         bNoviStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PersonalInfoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CreateNewRecordActivity.class);
                 startActivity(intent);
             }
         });

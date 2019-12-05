@@ -26,6 +26,7 @@ public class SummaryFragment extends Fragment implements PersonalInfoFragment.Pe
     private TextView TWGodina;
     private Button button;
     private String sDatumRodenja;
+    private String mIme, mPrezime, mDatum, mPredmet,mProfesor, mGodina, mPredavanja, mVjezbe;
 
     @Nullable
     @Override
@@ -44,11 +45,28 @@ public class SummaryFragment extends Fragment implements PersonalInfoFragment.Pe
         TWPredavanja = (TextView)view.findViewById(R.id.textViewPredavanja);
         TWVjezbe = (TextView)view.findViewById(R.id.textViewVjezbe);
         button = (Button)view.findViewById(R.id.button3);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDataStorage myDataStorage = MyDataStorage.getInstance();
+                Student student = new Student(mIme,mPrezime,mDatum, mPredmet,mProfesor,mGodina, mPredavanja,mVjezbe);
+                myDataStorage.addStudent(student);
+                Intent intent = new Intent(getActivity(), PocetniActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(intent);
+            }
+        });
     }
 
 
     @Override
     public void GetPersonalInfo(String ime, String prezime, String datumRodenja) {
+        mIme = ime;
+        mPrezime = prezime;
+        mDatum = datumRodenja;
+
         TWIme.setText(ime);
         TWPrezime.setText(prezime);
         TWDatumRodenja.setText(datumRodenja);
@@ -57,6 +75,11 @@ public class SummaryFragment extends Fragment implements PersonalInfoFragment.Pe
 
     @Override
     public void GetStudentInfo(String predmet, String profesor, String godina, String predavanja, String vjezbe) {
+        mPredmet = predmet;
+        mProfesor = profesor;
+        mGodina = godina;
+        mPredavanja = predavanja;
+        mVjezbe = vjezbe;
         TWGodina.setText(godina);
         TWPredmet.setText(predmet);
         TWProfesor.setText(profesor);

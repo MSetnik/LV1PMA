@@ -2,7 +2,10 @@ package com.example.lv1.Model;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -11,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,34 +28,39 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
+import static android.app.Activity.RESULT_OK;
+
 public class PersonalInfoFragment extends Fragment {
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
     private PersonalInfoListener personalFragmentListener;
     private TextInputEditText ime;
     private TextInputEditText prezime;
     private TextInputEditText datumRodenja;
+    private ImageView img;
     private Button btn;
+    private String sIme, sPrezime, sDatum;
 
     Adapter adapter;
     FragmentActivity listener;
 
     public interface PersonalInfoListener{
-        void GetPersonalInfo(String sIme, String sPrezime, String sDatumRodenja);
+        void GetPersonalInfo(String ime, String prezime, String datumRodenja);
     }
 
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if(context instanceof CreateNewRecordActivity)
+        if(context instanceof PersonalInfoListener)
         {
-            this.listener = (FragmentActivity)context;
+            personalFragmentListener = (PersonalInfoListener)context;
         }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        listener = null;
+        personalFragmentListener = null;
     }
 
     @Override
@@ -71,10 +80,21 @@ public class PersonalInfoFragment extends Fragment {
         prezime = view.findViewById(R.id.inputPrezime2);
         datumRodenja = view.findViewById(R.id.inputDatumRodenja2);
         btn = view.findViewById(R.id.button);
+        img = view.findViewById(R.id.imageView);
 
         ime.addTextChangedListener(InputCheck);
         prezime.addTextChangedListener(InputCheck);
         datumRodenja.addTextChangedListener(InputCheck);
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
+            }
+        });
 
     }
 
@@ -86,19 +106,18 @@ public class PersonalInfoFragment extends Fragment {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String sIme = ime.getText().toString();
-            String sPrezime = prezime.getText().toString();
-            String sDatumRodenja = datumRodenja.getText().toString();
 
 
-            if(sIme!=null && sPrezime != null && sDatumRodenja!= null){
-
-            }
         }
 
         @Override
         public void afterTextChanged(Editable s) {
 
+             sIme = ime.getText().toString();
+             sPrezime = prezime.getText().toString();
+             sDatum= datumRodenja.getText().toString();
+
+            personalFragmentListener.GetPersonalInfo(sIme,sPrezime,sDatum);
         }
     };
 
@@ -107,5 +126,14 @@ public class PersonalInfoFragment extends Fragment {
         ime.setText(sIme);
         prezime.setText(sPrezime);
         datumRodenja.setText(sDatumRodenja);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            img.setImageBitmap(imageBitmap);
+        }
     }
 }

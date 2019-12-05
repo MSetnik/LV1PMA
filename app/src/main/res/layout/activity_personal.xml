@@ -17,7 +17,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.03"
+        android:scaleType="centerCrop"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputIme"

@@ -27,6 +27,7 @@ public class StudentInfoFragment extends Fragment {
     private TextInputEditText predavanja;
     private TextInputEditText vjezbe;
     private Button btn2;
+    private String sPredmet, sProfesor, sGodina, sPredavanja, sVjezbe;
     Adapter adapter;
     FragmentActivity listener;
 
@@ -38,9 +39,9 @@ public class StudentInfoFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if(context instanceof CreateNewRecordActivity)
+        if(context instanceof StudentInfoListener)
         {
-            this.listener = (FragmentActivity)context;
+            studentInfoListener = (StudentInfoListener) context;
         }
     }
 
@@ -80,20 +81,18 @@ public class StudentInfoFragment extends Fragment {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String sPredmet = predmet.getText().toString();
-            String sProfesor = profesor.getText().toString();
-            String sGodina = godina.getText().toString();
-            String sPredavanja = predavanja.getText().toString();
-            String sVjezbe = vjezbe.getText().toString();
 
-            if(sPredmet!=null && sProfesor != null && sGodina!= null && sPredavanja!= null &sVjezbe!= null){
-                studentInfoListener.GetStudentInfo(sPredmet,sProfesor,sGodina,sPredavanja,sVjezbe);
-
-            }
         }
 
         @Override
         public void afterTextChanged(Editable s) {
+             sPredmet = predmet.getText().toString();
+             sProfesor = profesor.getText().toString();
+             sGodina = godina.getText().toString();
+             sPredavanja = predavanja.getText().toString();
+             sVjezbe = vjezbe.getText().toString();
+
+            studentInfoListener.GetStudentInfo(sPredmet,sProfesor,sGodina,sPredavanja,sVjezbe);
 
         }
     };
