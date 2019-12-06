@@ -12,7 +12,6 @@ import com.example.lv1.Model.MyDataStorage;
 import com.example.lv1.Model.Student;
 import com.example.lv1.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.StudentViewHolder> {

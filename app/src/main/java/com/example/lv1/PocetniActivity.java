@@ -12,15 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.lv1.Adapter.RecycleViewAdapter;
 import com.example.lv1.Model.MyDataStorage;
-import com.example.lv1.Model.PersonalInfoFragment;
-import com.example.lv1.Model.Student;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class PocetniActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {

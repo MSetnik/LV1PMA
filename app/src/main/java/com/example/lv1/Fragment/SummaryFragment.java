@@ -1,4 +1,4 @@
-package com.example.lv1.Model;
+package com.example.lv1.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.lv1.Model.MyDataStorage;
+import com.example.lv1.Model.Student;
 import com.example.lv1.PocetniActivity;
 import com.example.lv1.R;
 

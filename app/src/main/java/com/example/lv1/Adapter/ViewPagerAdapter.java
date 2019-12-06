@@ -1,18 +1,12 @@
 package com.example.lv1.Adapter;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-import com.example.lv1.Model.PersonalInfoFragment;
-import com.example.lv1.Model.StudentInfoFragment;
-import com.example.lv1.Model.SummaryFragment;
+import com.example.lv1.Fragment.PersonalInfoFragment;
+import com.example.lv1.Fragment.StudentInfoFragment;
+import com.example.lv1.Fragment.SummaryFragment;
 
 public class ViewPagerAdapter extends androidx.fragment.app.FragmentPagerAdapter {
 

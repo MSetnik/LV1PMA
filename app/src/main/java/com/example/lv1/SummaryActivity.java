@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.lv1.Adapter.RecycleViewAdapter;
 import com.example.lv1.Model.MyDataStorage;
 import com.example.lv1.Model.Student;
 

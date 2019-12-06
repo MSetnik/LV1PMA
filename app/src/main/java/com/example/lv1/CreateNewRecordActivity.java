@@ -1,17 +1,15 @@
 package com.example.lv1;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
 import com.example.lv1.Adapter.ViewPagerAdapter;
-import com.example.lv1.Model.PersonalInfoFragment;
-import com.example.lv1.Model.StudentInfoFragment;
-import com.example.lv1.Model.SummaryFragment;
+import com.example.lv1.Fragment.PersonalInfoFragment;
+import com.example.lv1.Fragment.StudentInfoFragment;
+import com.example.lv1.Fragment.SummaryFragment;
 
 public class CreateNewRecordActivity extends AppCompatActivity implements PersonalInfoFragment.PersonalInfoListener, StudentInfoFragment.StudentInfoListener  {
 
