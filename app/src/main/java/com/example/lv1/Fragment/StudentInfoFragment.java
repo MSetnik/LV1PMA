@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -33,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StudentInfoFragment extends Fragment implements Callback<CourseResponse>{
+public class StudentInfoFragment extends Fragment implements Callback<CourseResponse>, AdapterView.OnItemSelectedListener {
     private static final String  Tag = "myActivity";
     private StudentInfoListener studentInfoListener;
     private Spinner spinnerPredmet;
@@ -46,7 +47,10 @@ public class StudentInfoFragment extends Fragment implements Callback<CourseResp
     Adapter adapter;
     FragmentActivity listener;
     private CourseResponse courseResponse = new CourseResponse();
-    ArrayList<CourseResponse> lCourses = new ArrayList<>();
+    ArrayList<CourseResponse> lCourseResponse = new ArrayList<>();
+    ArrayList<Course> lCourse = new ArrayList<>();
+    ArrayList<String> lCourseName = new ArrayList<>();
+    private StudentInfoFragment studentInfoFragment;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,15 +65,42 @@ public class StudentInfoFragment extends Fragment implements Callback<CourseResp
     @Override
     public void onResponse(Call<CourseResponse> call, Response<CourseResponse> response) {
         if (response.isSuccessful() && response.body() != null){
-            lCourses.add(response.body());
-            Log.d(Tag,"onResponse:" + " " + lCourses);
-            //doSomethingImportantWithJobs(lCourses);
+            lCourseResponse.add(response.body());
+            Log.d(Tag,"onResponse:" + " " + lCourseResponse);
+            for (int i=0;i<lCourseResponse.size();i++)
+            {
+
+                lCourse = lCourseResponse.get(i).getCourses();
+                //lCourse.add(object);
+            }
+            Log.d(Tag, "loop" + " " + lCourse.size());
+
+            for(int i=0;i<lCourse.size();i++)
+            {
+                String sCourseName = lCourse.get(i).getTitle();
+                lCourseName.add(sCourseName);
+            }
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, lCourseName);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerPredmet.setAdapter(adapter);
+            spinnerPredmet.setOnItemSelectedListener(this);
         }
     }
 
     @Override
     public void onFailure(Call<CourseResponse> call, Throwable t) {
         t.printStackTrace();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = spinnerPredmet.getSelectedItem().toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     public interface StudentInfoListener{
@@ -112,10 +143,11 @@ public class StudentInfoFragment extends Fragment implements Callback<CourseResp
         predavanja.addTextChangedListener(InputCheck);
         vjezbe.addTextChangedListener(InputCheck);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.languages, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerPredmet.setAdapter(adapter);
-        spinnerPredmet.setOnItemSelectedListener(this);
+        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getContext(), android.R.layout.simple_spinner_item, lCourseName);
+
+       // String text = spinnerPredmet.getSelectedItem().toString();
+/*
+       */
     }
 
 
