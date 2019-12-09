@@ -37,7 +37,6 @@ public class PersonalInfoFragment extends Fragment {
     private TextInputEditText prezime;
     private TextInputEditText datumRodenja;
     private ImageView img;
-    private Button btn;
     private String sIme, sPrezime, sDatum;
 
     Adapter adapter;
@@ -79,7 +78,6 @@ public class PersonalInfoFragment extends Fragment {
         ime = view.findViewById(R.id.inputIme2);
         prezime = view.findViewById(R.id.inputPrezime2);
         datumRodenja = view.findViewById(R.id.inputDatumRodenja2);
-        btn = view.findViewById(R.id.button);
         img = view.findViewById(R.id.imageView);
 
         ime.addTextChangedListener(InputCheck);

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Course {
     String title;
-    ArrayList<Instructor> instructor;
+    ArrayList<Instructor> instructors;
 
     public String getTitle() {
         return title;
     }
 
     public ArrayList<Instructor> getInstructor() {
-        return instructor;
+        return instructors;
     }
 }

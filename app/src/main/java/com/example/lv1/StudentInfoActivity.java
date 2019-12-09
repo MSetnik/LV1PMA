@@ -27,12 +27,10 @@ public class StudentInfoActivity extends AppCompatActivity {
 
 
         predmet = (Spinner)findViewById(R.id.odabirPredmeta);
-        profesor = (TextInputEditText)findViewById(R.id.inputImeProfesora2);
         godina = (TextInputEditText)findViewById(R.id.inputGodina2);
         predavanja = (TextInputEditText)findViewById(R.id.inputPredavanja2);
         vjezbe = (TextInputEditText)findViewById(R.id.inputLV2);
 
-        btn2 = (Button)findViewById(R.id.button2);
         final Bundle oExtras = getIntent().getExtras();
         final String ime =oExtras.getString("ime");
         final String prezime =oExtras.getString("prezime");
